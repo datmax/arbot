@@ -3,7 +3,7 @@
 - scaricate la repository 
 - estraete il zip 
 - aprire terminal 
-- arrivate alla cartella tramite terminal
+- arrivate alla cartella tramite riga di comando
 - controllate se avete node installato tramite `node -v`
 - se vi restituisce qualcosa come `v16.15.0`, andate avanti. altrimenti scaricate prima Ndoejs
 - in riga di comando: `npm install`
