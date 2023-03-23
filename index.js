@@ -8,13 +8,25 @@ const aimBlock = 16890400
 
 
 //METTETE LA VOSTRA CHIAVE QUI DENTRO
-const key = ""
+const key = "CHIAVE QUI"
 
 
 const provider = new ethers.JsonRpcProvider(url)
 const wssProvider = new ethers.WebSocketProvider(wss); 
-//const wallet = new ethers.Wallet("", provider)
+const wallet = new ethers.Wallet(key, provider)
+
+
+
+const c = new ethers.Contract(contract, abi, wallet);
 
 wssProvider.on("block", function(block){
-    console.log(block)
+    if(block => aimBlock){
+        c.claim().then((tx) =>{
+            tx.wait().then((res)=>{
+                console.log("claim successful!")
+            }).catch((err)=>{
+                console.log("something failed. retry using npm run dev")
+            })
+        }).catch((err)=>{"SI MA PORCO DIO EH "})
+    }
 })
